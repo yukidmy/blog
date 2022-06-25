@@ -97,7 +97,7 @@ author = "Yuki Y"
 # search
 search = false
 # main section
-mainSections = ["diary", "tech"]
+mainSections = ["diary", "note", "tech"]
 # copyright
 copyright = "© 2022 [Yuki Y](https://yukidmy.com/)"
 # copyright = "© 2022-{year} [Yuki Yamada](https://yukidmy.com/)"
