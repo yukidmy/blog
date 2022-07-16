@@ -9,7 +9,7 @@ theme = "bookworm-light"
 #   path = "github.com/gethugothemes/bookworm-light"
 
 # post pagination
-paginate = "7"
+paginate = "6"
 # post excerpt
 summaryLength = "20"
 # google analytics
