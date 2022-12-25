@@ -1,0 +1,49 @@
+name: github pages
+
+on:
+  repository_dispatch:
+    types:
+      - publish_latest_articles
+  push:
+    branches:
+    - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: install
+      run: npm install --frozen-lockfile
+
+    - name: build & export
+      run: npm run build
+      env:
+        MICROCMS_API_KEY: ${{secrets.MICROCMS_API_KEY}}
+        MICROCMS_SERVICE: ${{secrets.MICROCMS_SERVICE}}
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}}
+
+    - name: add CNAME
+      run: echo "blog.yukidmy.com" > ./out/CNAME
+
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
+        publish_branch: gh-pages

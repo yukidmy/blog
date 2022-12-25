@@ -1,0 +1,31 @@
+{
+  "apiFields": [
+    {
+      "idValue": "wIh7psCa3q",
+      "fieldId": "title",
+      "name": "Title",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    },
+    {
+      "fieldId": "content",
+      "name": "Content",
+      "kind": "richEditor",
+      "required": true
+    },
+    {
+      "fieldId": "eyecatch",
+      "name": "Eyecatch",
+      "kind": "media",
+      "required": true
+    },
+    {
+      "fieldId": "tags",
+      "name": "Tags",
+      "kind": "relationList",
+      "required": true
+    }
+  ],
+  "customFields": []
+}

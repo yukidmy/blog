@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Zen Kaku Gothic New, cursive, system-ui, sans-serif;
+    @apply text-base;
+    @apply text-slate-700;
+  }
+
+  h1 {
+    @apply text-2xl my-4;
+    @apply font-semibold;
+    @apply text-slate-900;
+  }
+  h2 {
+    @apply text-xl my-3;
+    @apply font-semibold;
+    @apply text-slate-900;
+  }
+  h3 {
+    @apply text-lg mt-2;
+    @apply font-bold;
+    @apply text-slate-900;
+  }
+  h4 {
+    @apply text-base mt-2;
+    @apply font-bold;
+    @apply text-slate-900;
+  }
+  h5 {
+    @apply text-base mt-1;
+    @apply font-semibold;
+    @apply text-slate-900;
+  }
+
+  article h1 {
+    @apply mx-0;
+    @apply border-b-2 border-slate-900;
+  }
+  article a {
+    @apply underline decoration-teal-500 decoration-2 decoration-dotted;
+  }
+  article blockquote {
+    @apply rounded my-2 p-2 w-full;
+    @apply border-l-4 border-teal-500 bg-slate-50;
+    @apply italic;
+  }
+  article code {
+    @apply text-xs leading-tight;
+    @apply my-2 rounded;
+  }
+  article img {
+    @apply border border-slate-100;
+    @apply my-2 rounded-xl;
+  }
+  article p {
+    @apply my-1;
+  }
+  article ul {
+    @apply list-disc;
+    @apply ml-10 space-y-1;
+  }
+}

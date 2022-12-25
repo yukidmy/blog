@@ -1,0 +1,13 @@
+{
+  "apiFields": [
+    {
+      "idValue": "-PDeePo2Vc",
+      "fieldId": "name",
+      "name": "Name",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    }
+  ],
+  "customFields": []
+}
