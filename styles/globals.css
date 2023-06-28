@@ -21,17 +21,17 @@
     @apply text-slate-900;
   }
   h3 {
-    @apply text-lg mt-2;
+    @apply text-lg my-2;
     @apply font-bold;
     @apply text-slate-900;
   }
   h4 {
-    @apply text-base mt-2;
+    @apply text-base my-2;
     @apply font-bold;
     @apply text-slate-900;
   }
   h5 {
-    @apply text-base mt-1;
+    @apply text-base my-2;
     @apply font-semibold;
     @apply text-slate-900;
   }
@@ -57,7 +57,11 @@
     @apply my-2 rounded-xl;
   }
   article p {
-    @apply my-1;
+    @apply py-1;
+    @apply min-h-[1rem];
+  }
+  article > ul {
+    @apply py-1;
   }
   article ul {
     @apply list-disc;
