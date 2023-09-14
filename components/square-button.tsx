@@ -9,7 +9,8 @@ export const SquareIconButton: FC<{
   focus: boolean;
   href: string;
   icon: IconDefinition;
-}> = ({ iconColor, border, focus, href, icon }) => {
+  label: string;
+}> = ({ iconColor, border, focus, href, icon, label }) => {
   return (
     <Link
       className={`w-12 h-12 mx-1 rounded-xl grid place-items-center ${
@@ -18,6 +19,7 @@ export const SquareIconButton: FC<{
           : `hover:border hover:border-${iconColor}`
       } ${focus ? `text-white bg-${iconColor}` : `text-${iconColor}`}`}
       href={href}
+      aria-label={label}
     >
       <FontAwesomeIcon icon={icon} size="sm" />
     </Link>
@@ -51,7 +53,8 @@ export const SquareElementButton: FC<{
   focus: boolean;
   href: string;
   children: ReactNode;
-}> = ({ iconColor, border, focus, href, children }) => {
+  label: string;
+}> = ({ iconColor, border, focus, href, children, label }) => {
   return (
     <Link
       className={`min-w-12 h-12 mx-1 px-4 rounded-xl grid place-items-center ${
@@ -60,6 +63,7 @@ export const SquareElementButton: FC<{
           : `hover:border hover:border-${iconColor}`
       } ${focus ? `text-white bg-${iconColor}` : `text-${iconColor}`}`}
       href={href}
+      aria-label={label}
     >
       {children}
     </Link>

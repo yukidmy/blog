@@ -44,6 +44,7 @@ const Tags: FC<{ tags: Array<tag> }> = ({ tags }) => {
               border={true}
               focus={false}
               href={`/tags/${tag.id}`}
+              label={`# ${tag.name} (${tag.count})`}
             >
               {" "}
               <span>

@@ -21,6 +21,7 @@ export const Footer: FC<{}> = () => {
             focus={false}
             href="https://twitter.com/yukidmy"
             icon={faTwitter}
+            label="Go to Yuki's Twitter"
           />
         </li>
         <li>
@@ -30,6 +31,7 @@ export const Footer: FC<{}> = () => {
             focus={false}
             href="https://instagram.com/yukidmy"
             icon={faInstagram}
+            label="Go to Yuki's Instagram"
           />
         </li>
         <li>
@@ -39,6 +41,7 @@ export const Footer: FC<{}> = () => {
             focus={false}
             href="https://github.com/yukidmy"
             icon={faGithub}
+            label="Go to Yuki's GitHub"
           />
         </li>
         <li>
@@ -48,6 +51,7 @@ export const Footer: FC<{}> = () => {
             focus={false}
             href="https://linkedin.com/in/yukidmy"
             icon={faLinkedinIn}
+            label="Go to Yuki's LinkedIn"
           />
         </li>
         <li>
@@ -57,6 +61,7 @@ export const Footer: FC<{}> = () => {
             focus={false}
             href="https://www.amazon.jp/hz/wishlist/ls/2LA6Q65P7GUC3"
             icon={faGift}
+            label="Go to Yuki's Wish List"
           />
         </li>
       </ul>

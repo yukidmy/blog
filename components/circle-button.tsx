@@ -9,7 +9,8 @@ export const CircleIconButton: FC<{
   focus: boolean;
   href: string;
   icon: IconDefinition;
-}> = ({ iconColor, border, focus, href, icon }) => {
+  label: string;
+}> = ({ iconColor, border, focus, href, icon, label }) => {
   return (
     <Link
       className={`w-12 h-12 mx-1 rounded-full grid place-items-center ${
@@ -19,6 +20,7 @@ export const CircleIconButton: FC<{
       } ${focus ? `text-white bg-${iconColor}` : `text-${iconColor}`}`}
       href={href}
       target="_blank"
+      aria-label={label}
     >
       <FontAwesomeIcon icon={icon} size="sm" />
     </Link>

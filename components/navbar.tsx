@@ -22,6 +22,7 @@ export const Navbar: FC<{}> = () => {
         </ul>
         <button
           className="w-7 h-7 grid place-items-center md:hidden"
+          aria-label="Menu"
           onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
         >
           {isHamburgerOpen ? (

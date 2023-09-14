@@ -141,6 +141,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
               `https://blog.yukidmy.com/${article.id}`
             )}
             icon={faTwitter}
+            label="Share on Twitter"
           />
         </li>
       </ul>
@@ -151,6 +152,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
             border={false}
             focus={false}
             href={`/${nextId}`}
+            label="Next"
           >
             <p>
               <FontAwesomeIcon icon={faAngleLeft} /> Next
@@ -164,6 +166,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
             border={false}
             focus={false}
             href={`/${prevId}`}
+            label="Prev"
           >
             <p>
               Prev <FontAwesomeIcon icon={faAngleRight} />

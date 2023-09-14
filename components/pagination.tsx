@@ -23,6 +23,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
               focus={false}
               href={`/pages/${focused - 1}`}
               icon={faAngleLeft}
+              label="Next"
             />
           </li>
         ) : null}
@@ -57,6 +58,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
               focus={false}
               href={`/pages/${focused - 1}`}
               icon={faAngleRight}
+              label="Prev"
             />
           </li>
         ) : null}
