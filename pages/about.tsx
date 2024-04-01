@@ -22,7 +22,7 @@ const About: FC<{}> = () => {
           <Image
             src="https://www.yukidmy.com/profile.jpg"
             fill
-            objectFit="contain"
+            style={{ objectFit: "contain" }}
             alt="icon"
             className="rounded-full border border-slate-50"
             sizes="(max-width: 1024px) 18vw,

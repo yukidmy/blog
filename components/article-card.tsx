@@ -25,7 +25,7 @@ export const ArticleCard: FC<{ data: article }> = ({ data }) => {
           </span>
           <ul className="flex flex-wrap">
             {data.tags.map((tag) => (
-              <li>
+              <li key={`${tag.id}`}>
                 <Link className="mr-3 text-teal-500" href={`/tags/${tag.id}`}>
                   <FontAwesomeIcon icon={faHashtag} className="mr-1" />
                   {tag.name}

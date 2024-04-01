@@ -13,10 +13,10 @@ export const Navbar: FC<{}> = () => {
           <p className="text-xl font-site-title"># ゆのろぐ</p>
         </Link>
         <ul className="hidden mx-1 space-x-8 md:flex">
-          <li>
+          <li key="about">
             <Link href="/about">About</Link>
           </li>
-          <li>
+          <li key="tags">
             <Link href="/tags">Tags</Link>
           </li>
         </ul>

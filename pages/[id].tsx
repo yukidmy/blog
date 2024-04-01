@@ -130,7 +130,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
         />
       </div>
       <ul className="flex justify-center items-center">
-        <li>
+        <li key="twitter">
           <CircleIconButton
             iconColor="slate-900"
             border={false}

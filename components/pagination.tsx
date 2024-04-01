@@ -2,13 +2,29 @@ import { SquareIconButton, SquareTextButton } from "./square-button";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FC } from "react";
 
-export const ARTICLES_PER_PAGE = 6;
+export const ARTICLES_PER_PAGE = 8;
 
-export const Pagination: FC<{ totalCount: number; focused: number }> = ({
-  totalCount,
-  focused,
-}) => {
-  const max_page = Math.ceil((totalCount + 1) / ARTICLES_PER_PAGE);
+const formatPrefix = (prefix: string): string => {
+  if (!prefix.startsWith("/")) {
+    prefix = "/" + prefix;
+  }
+  if (!prefix.endsWith("/")) {
+    prefix = prefix + "/";
+  }
+  return prefix;
+};
+
+export const Pagination: FC<{
+  base: string;
+  prefix: string;
+  totalCount: number;
+  firstPageOffset: number;
+  focused: number;
+}> = ({ base, prefix, totalCount, firstPageOffset, focused }) => {
+  prefix = formatPrefix(prefix);
+  const max_page = Math.ceil(
+    (totalCount + firstPageOffset) / ARTICLES_PER_PAGE
+  );
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
 
@@ -21,7 +37,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
               iconColor="slate-900"
               border={false}
               focus={false}
-              href={`/pages/${focused - 1}`}
+              href={`${focused === 2 ? base : prefix + +(focused - 1)}`}
               icon={faAngleLeft}
               label="Next"
             />
@@ -34,7 +50,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
                 iconColor="slate-900"
                 border={false}
                 focus={true}
-                href={`${number === 1 ? "/" : "/pages/" + number}`}
+                href={`${number === 1 ? base : prefix + number}`}
                 text={number.toString()}
               />
             </li>
@@ -44,7 +60,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
                 iconColor="slate-900"
                 border={false}
                 focus={false}
-                href={`${number === 1 ? "/" : "/pages/" + number}`}
+                href={`${number === 1 ? base : prefix + number}`}
                 text={number.toString()}
               />
             </li>
@@ -56,7 +72,7 @@ export const Pagination: FC<{ totalCount: number; focused: number }> = ({
               iconColor="slate-900"
               border={false}
               focus={false}
-              href={`/pages/${focused - 1}`}
+              href={`${prefix}${focused - 1}`}
               icon={faAngleRight}
               label="Prev"
             />

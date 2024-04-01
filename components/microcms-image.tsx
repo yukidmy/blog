@@ -52,7 +52,7 @@ export const MicroCmsImage: FC<{
           alt={alt}
           loading={loading}
           fill
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           className="rounded-xl border border-slate-100"
         />
       </>

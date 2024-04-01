@@ -37,7 +37,13 @@ const Home: FC<{ articles: Array<article>; totalCount: number }> = ({
           </div>
         ))}
       </div>
-      <Pagination totalCount={totalCount} focused={1} />
+      <Pagination
+        base="/"
+        prefix="/pages"
+        totalCount={totalCount}
+        firstPageOffset={1}
+        focused={1}
+      />
     </Layout>
   );
 };

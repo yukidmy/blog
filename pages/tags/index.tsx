@@ -1,8 +1,8 @@
-import { Layout } from "../components/layout";
-import { SquareElementButton } from "../components/square-button";
-import { Header } from "../components/sub-title-header";
-import { tag } from "../libs/cms-types";
-import { listTags } from "../libs/microcms";
+import { Layout } from "../../components/layout";
+import { SquareElementButton } from "../../components/square-button";
+import { Header } from "../../components/sub-title-header";
+import { tag } from "../../libs/cms-types";
+import { listTags } from "../../libs/microcms";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GetStaticPropsContext, GetStaticPropsResult } from "next";
@@ -38,7 +38,7 @@ const Tags: FC<{ tags: Array<tag> }> = ({ tags }) => {
       />
       <ul className="flex flex-wrap justify-center items-center">
         {tags.map((tag) => (
-          <li className="my-1">
+          <li key={`${tag.id}`} className="my-1">
             <SquareElementButton
               iconColor="teal-500"
               border={true}

@@ -4,7 +4,6 @@ import hljs from "highlight.js";
 import { JSDOM } from "jsdom";
 import { createClient } from "microcms-js-sdk";
 
-
 const QUERY_ALL_LIMIT = 100000;
 const SUMMARY_LIMIT = 1000;
 
@@ -57,10 +56,18 @@ export const listArticles = async (
 };
 
 export const readTag = async (id: string): Promise<tag> => {
-  const data = await client.get<tag<"get">>({
+  let data = await client.get<tag<"get">>({
     endpoint: "tag",
     contentId: id,
   });
+  const articleData = await client.get<article<"gets">>({
+    endpoint: "article",
+    queries: {
+      filters: `tags[contains]${id}`,
+      limit: QUERY_ALL_LIMIT,
+    },
+  });
+  data.count = articleData.contents.length ?? 0;
   return data;
 };
 
@@ -95,11 +102,18 @@ export const listTags = async (): Promise<Array<tag>> => {
 };
 
 export const listArticlesByTag = async (
-  tagId: string
+  tagId: string,
+  offset: number = 0,
+  limit: number = QUERY_ALL_LIMIT
 ): Promise<Array<article>> => {
   const data = await client.get<article<"gets">>({
     endpoint: "article",
-    queries: { filters: `tags[contains]${tagId}` },
+    queries: {
+      filters: `tags[contains]${tagId}`,
+      offset: offset,
+      limit: limit,
+      orders: "-publishedAt",
+    },
   });
   for (const d of data.contents) {
     d.summary = getSummary(d.content);

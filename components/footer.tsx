@@ -14,7 +14,7 @@ export const Footer: FC<{}> = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 w-full h-32">
       <ul className="mt-9 mb-5 w-full mx-auto flex items-center justify-center">
-        <li>
+        <li key="twitter">
           <SquareIconButton
             iconColor="slate-50"
             border={true}
@@ -24,7 +24,7 @@ export const Footer: FC<{}> = () => {
             label="Go to Yuki's Twitter"
           />
         </li>
-        <li>
+        <li key="instagram">
           <SquareIconButton
             iconColor="slate-50"
             border={true}
@@ -34,7 +34,7 @@ export const Footer: FC<{}> = () => {
             label="Go to Yuki's Instagram"
           />
         </li>
-        <li>
+        <li key="github">
           <SquareIconButton
             iconColor="slate-50"
             border={true}
@@ -44,7 +44,7 @@ export const Footer: FC<{}> = () => {
             label="Go to Yuki's GitHub"
           />
         </li>
-        <li>
+        <li key="linkedin">
           <SquareIconButton
             iconColor="slate-50"
             border={true}
@@ -54,7 +54,7 @@ export const Footer: FC<{}> = () => {
             label="Go to Yuki's LinkedIn"
           />
         </li>
-        <li>
+        <li key="amazon">
           <SquareIconButton
             iconColor="slate-50"
             border={true}

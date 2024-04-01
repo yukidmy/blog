@@ -2,8 +2,8 @@ import { Tracking } from "../components/analytics";
 import "../styles/globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Zen_Kaku_Gothic_New, Train_One } from "next/font/google";
 import type { AppProps } from "next/app";
+import { Zen_Kaku_Gothic_New, Train_One } from "next/font/google";
 import { FC } from "react";
 
 config.autoAddCss = false;

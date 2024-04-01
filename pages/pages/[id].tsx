@@ -54,12 +54,18 @@ const PageId: FC<{
     <Layout subTitle="">
       <ul className="flex flex-wrap justify-between items-start">
         {articles.map((article, i) => (
-          <li className="w-full md:w-[48%]">
+          <li key={`${article.id}`} className="w-full md:w-[48%]">
             <ArticleCard data={article} />
           </li>
         ))}
       </ul>
-      <Pagination totalCount={totalCount} focused={+id} />
+      <Pagination
+        base="/"
+        prefix="/pages"
+        totalCount={totalCount}
+        firstPageOffset={1}
+        focused={+id}
+      />
     </Layout>
   );
 };
