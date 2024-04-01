@@ -1,8 +1,8 @@
 import { SquareIconButton, SquareTextButton } from "./square-button";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FC } from "react";
+import type { NextPage } from "next";
 
-export const ARTICLES_PER_PAGE = 8;
+export const ARTICLES_PER_PAGE = 6;
 
 const formatPrefix = (prefix: string): string => {
   if (!prefix.startsWith("/")) {
@@ -14,7 +14,7 @@ const formatPrefix = (prefix: string): string => {
   return prefix;
 };
 
-export const Pagination: FC<{
+export const Pagination: NextPage<{
   base: string;
   prefix: string;
   totalCount: number;
@@ -23,7 +23,7 @@ export const Pagination: FC<{
 }> = ({ base, prefix, totalCount, firstPageOffset, focused }) => {
   prefix = formatPrefix(prefix);
   const max_page = Math.ceil(
-    (totalCount + firstPageOffset) / ARTICLES_PER_PAGE
+    (totalCount + firstPageOffset) / ARTICLES_PER_PAGE,
   );
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
@@ -45,7 +45,7 @@ export const Pagination: FC<{
         ) : null}
         {range(1, max_page).map((number, index) =>
           focused === index + 1 ? (
-            <li>
+            <li key="prev">
               <SquareTextButton
                 iconColor="slate-900"
                 border={false}
@@ -55,7 +55,7 @@ export const Pagination: FC<{
               />
             </li>
           ) : (
-            <li>
+            <li key={number.toString()}>
               <SquareTextButton
                 iconColor="slate-900"
                 border={false}
@@ -64,10 +64,10 @@ export const Pagination: FC<{
                 text={number.toString()}
               />
             </li>
-          )
+          ),
         )}
         {focused < max_page ? (
-          <li>
+          <li key="next">
             <SquareIconButton
               iconColor="slate-900"
               border={false}

@@ -9,7 +9,7 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import { FC } from "react";
+import type { NextPage } from "next";
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   const data = await listTags();
@@ -18,7 +18,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 };
 
 export const getStaticProps = async (
-  context: GetStaticPropsContext<{ tag: string }>
+  context: GetStaticPropsContext<{ tag: string }>,
 ): Promise<GetStaticPropsResult<{ tag: tag; articles: Array<article> }>> => {
   if (!context.params) throw new Error("Not found: params");
   const { tag } = context.params;
@@ -29,7 +29,7 @@ export const getStaticProps = async (
   };
 };
 
-const Tag: FC<{
+const Tag: NextPage<{
   tag: tag;
   articles: Array<article>;
 }> = ({ tag, articles }) => {
@@ -50,7 +50,7 @@ const Tag: FC<{
         ]}
       />
       <ul className="flex flex-wrap justify-between items-start">
-        {articles.map((article, i) => (
+        {articles.map((article) => (
           <li key={`${article.id}`} className="w-full md:w-[48%]">
             <ArticleCard data={article} />
           </li>

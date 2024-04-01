@@ -7,10 +7,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC } from "react";
 
-export const Footer: FC<{}> = () => {
+export const Footer: NextPage = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 w-full h-32">
       <ul className="mt-9 mb-5 w-full mx-auto flex items-center justify-center">

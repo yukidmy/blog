@@ -42,7 +42,7 @@ export const readArticle = async (id: string): Promise<article> => {
 
 export const listArticles = async (
   offset: number = 0,
-  limit: number = QUERY_ALL_LIMIT
+  limit: number = QUERY_ALL_LIMIT,
 ): Promise<Array<article>> => {
   const data = await client.get<article<"gets">>({
     endpoint: "article",
@@ -56,7 +56,7 @@ export const listArticles = async (
 };
 
 export const readTag = async (id: string): Promise<tag> => {
-  let data = await client.get<tag<"get">>({
+  const data = await client.get<tag<"get">>({
     endpoint: "tag",
     contentId: id,
   });
@@ -104,7 +104,7 @@ export const listTags = async (): Promise<Array<tag>> => {
 export const listArticlesByTag = async (
   tagId: string,
   offset: number = 0,
-  limit: number = QUERY_ALL_LIMIT
+  limit: number = QUERY_ALL_LIMIT,
 ): Promise<Array<article>> => {
   const data = await client.get<article<"gets">>({
     endpoint: "article",

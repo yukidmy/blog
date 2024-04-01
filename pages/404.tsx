@@ -1,8 +1,8 @@
 import { Layout } from "../components/layout";
 import { Header } from "../components/sub-title-header";
-import { FC } from "react";
+import type { NextPage } from "next";
 
-const Custom404: FC<{}> = () => {
+const Custom404: NextPage = () => {
   return (
     <Layout subTitle="404">
       <Header

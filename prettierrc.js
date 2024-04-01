@@ -1,11 +1,13 @@
 module.exports = {
+  plugins: ["prettier-plugin-tailwindcss"],
   printWidth: 80,
   semi: true,
   singleQuote: true,
   jsxSingleQuote: true,
   bracketSpacing: false,
   arrowParens: "avoid",
-  // @trivago/prettier-plugin-sort-imports
+  tabWidth: 2,
+  trailingComma: "all",
   importOrder: ["<THIRD_PARTY_MODULES>", "^@/(.*)$"],
   importOrderSeparation: true,
   importOrderCaseInsensitive: true,

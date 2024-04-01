@@ -3,12 +3,10 @@ import { Layout } from "../components/layout";
 import { Pagination, ARTICLES_PER_PAGE } from "../components/pagination";
 import { article } from "../libs/cms-types";
 import { listArticles } from "../libs/microcms";
-import { GetStaticPropsContext, GetStaticPropsResult } from "next";
-import { FC } from "react";
+import { GetStaticPropsResult } from "next";
+import type { NextPage } from "next";
 
-export const getStaticProps = async (
-  _: GetStaticPropsContext<{}>
-): Promise<
+export const getStaticProps = async (): Promise<
   GetStaticPropsResult<{
     articles: Array<article>;
     totalCount: number;
@@ -24,7 +22,7 @@ export const getStaticProps = async (
   };
 };
 
-const Home: FC<{ articles: Array<article>; totalCount: number }> = ({
+const Home: NextPage<{ articles: Array<article>; totalCount: number }> = ({
   articles,
   totalCount,
 }) => {
@@ -32,7 +30,10 @@ const Home: FC<{ articles: Array<article>; totalCount: number }> = ({
     <Layout subTitle="">
       <div className="flex flex-wrap justify-between items-start">
         {articles.map((article, i) => (
-          <div className={`${i === 0 ? "w-full" : "w-full md:w-[48%]"}`}>
+          <div
+            key={i.toString()}
+            className={`${i === 0 ? "w-full" : "w-full md:w-[48%]"}`}
+          >
             <ArticleCard data={article} />
           </div>
         ))}

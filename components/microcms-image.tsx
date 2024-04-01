@@ -1,21 +1,24 @@
-import tailwindConfig from "../tailwind.config.js";
+import tailwindConfig from "../tailwind.config";
+import type { NextPage } from "next";
 import Image from "next/image";
-import { FC } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 
 // TODO: Use cache() API when it is released.
 // https://beta.nextjs.org/docs/data-fetching/caching#per-request-caching
 // https://github.com/facebook/react/pull/25502
 
-export const MicroCmsImage: FC<{
+export const MicroCmsImage: NextPage<{
   src: string;
   alt: string;
   loading: "eager" | "lazy";
 }> = ({ src, alt, loading }) => {
-  const config = resolveConfig(tailwindConfig) as any;
+  const config = resolveConfig(tailwindConfig);
   const breakpoints = ["xs", "sm", "md", "lg", "xl", "2xl"];
   const sizes = breakpoints.map(
-    (breakpoint) => +config.theme.screens[breakpoint].slice(0, -2)
+    (breakpoint) =>
+      +config.theme.screens[
+        breakpoint as keyof typeof config.theme.screens
+      ].slice(0, -2),
   );
 
   return (

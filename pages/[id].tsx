@@ -19,16 +19,9 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import Image from "next/image";
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC, useEffect } from "react";
-
-declare global {
-  interface Window {
-    instgrm: any;
-    twttr: any;
-  }
-}
+import { useEffect } from "react";
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   const data = await listArticles();
@@ -37,7 +30,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 };
 
 export const getStaticProps = async (
-  context: GetStaticPropsContext<{ id: string }>
+  context: GetStaticPropsContext<{ id: string }>,
 ): Promise<
   GetStaticPropsResult<{
     article: article;
@@ -59,17 +52,17 @@ export const getStaticProps = async (
   };
 };
 
-const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
-  article,
-  nextId,
-  prevId,
-}) => {
+const ArticleId: NextPage<{
+  article: article;
+  nextId: string;
+  prevId: string;
+}> = ({ article, nextId, prevId }) => {
   useEffect(() => {
     // Add a link to the external Twitter script file:
     const twitterScript = document.createElement("script");
     twitterScript.setAttribute(
       "src",
-      "https://platform.twitter.com/widgets.js"
+      "https://platform.twitter.com/widgets.js",
     );
     twitterScript.setAttribute("async", "true");
     const tweetElement = document.getElementsByClassName("twitter-tweet")[0];
@@ -104,7 +97,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
             </span>
             <ul className="my-1 flex flex-wrap">
               {article.tags.map((tag) => (
-                <li>
+                <li key={`tags/${tag.id}`}>
                   <Link className="mr-3 text-teal-500" href={`/tags/${tag.id}`}>
                     <FontAwesomeIcon icon={faHashtag} className="mr-1" />
                     {tag.name}
@@ -138,7 +131,7 @@ const ArticleId: FC<{ article: article; nextId: string; prevId: string }> = ({
             href={encodedUrl(
               "https://twitter.com/intent/tweet/",
               `${article.title} | #ゆのろぐ`,
-              `https://blog.yukidmy.com/${article.id}`
+              `https://blog.yukidmy.com/${article.id}`,
             )}
             icon={faTwitter}
             label="Share on Twitter"

@@ -1,9 +1,10 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC, ReactNode } from "react";
+import { ReactNode } from "react";
 
-export const SquareIconButton: FC<{
+export const SquareIconButton: NextPage<{
   iconColor: string;
   border: boolean;
   focus: boolean;
@@ -26,7 +27,7 @@ export const SquareIconButton: FC<{
   );
 };
 
-export const SquareTextButton: FC<{
+export const SquareTextButton: NextPage<{
   iconColor: string;
   border: boolean;
   focus: boolean;
@@ -47,7 +48,7 @@ export const SquareTextButton: FC<{
   );
 };
 
-export const SquareElementButton: FC<{
+export const SquareElementButton: NextPage<{
   iconColor: string;
   border: boolean;
   focus: boolean;

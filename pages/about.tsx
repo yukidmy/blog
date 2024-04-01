@@ -1,10 +1,10 @@
 import { Layout } from "../components/layout";
 import { Header } from "../components/sub-title-header";
+import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 
-const About: FC<{}> = () => {
+const About: NextPage = () => {
   return (
     <Layout subTitle="About">
       <Header

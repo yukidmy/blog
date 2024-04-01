@@ -1,8 +1,7 @@
+import type { NextPage } from "next";
 import Head from "next/head";
-import Script from "next/script";
-import { FC } from "react";
 
-export const MyHead: FC<{
+export const MyHead: NextPage<{
   subTitle: string;
   description?: string;
   image?: string;

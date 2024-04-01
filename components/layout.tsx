@@ -1,9 +1,10 @@
 import { Footer } from "./footer";
 import { MyHead } from "./head";
 import { Navbar } from "./navbar";
-import { FC, ReactNode } from "react";
+import type { NextPage } from "next";
+import { ReactNode } from "react";
 
-export const Layout: FC<{
+export const Layout: NextPage<{
   subTitle: string;
   description?: string;
   image?: string;

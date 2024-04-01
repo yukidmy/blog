@@ -5,7 +5,6 @@
 
 @layer base {
   html {
-    font-family: Zen Kaku Gothic New, cursive, system-ui, sans-serif;
     @apply text-base;
     @apply text-slate-700;
   }

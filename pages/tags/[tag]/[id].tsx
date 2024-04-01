@@ -9,7 +9,7 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import { FC } from "react";
+import type { NextPage } from "next";
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   const data = await listTags();
@@ -19,7 +19,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
       const range = (start: number, end: number) =>
         [...Array(end - start + 1)].map((_, i) => start + i);
       paths = paths.concat(
-        range(2, max_page).map((repo) => `/tags/${tag.id}/${repo}`)
+        range(2, max_page).map((repo) => `/tags/${tag.id}/${repo}`),
       );
     }
     return paths;
@@ -29,7 +29,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 };
 
 export const getStaticProps = async (
-  context: GetStaticPropsContext<{ tag: string; id: string }>
+  context: GetStaticPropsContext<{ tag: string; id: string }>,
 ): Promise<
   GetStaticPropsResult<{
     tag: tag;
@@ -43,14 +43,14 @@ export const getStaticProps = async (
   const articles = await listArticlesByTag(
     tag,
     (+id - 1) * ARTICLES_PER_PAGE,
-    ARTICLES_PER_PAGE
+    ARTICLES_PER_PAGE,
   );
   return {
     props: { tag: tagData, id: id, articles: articles },
   };
 };
 
-const TagId: FC<{
+const TagId: NextPage<{
   tag: tag;
   id: string;
   articles: Array<article>;
@@ -72,7 +72,7 @@ const TagId: FC<{
         ]}
       />
       <ul className="flex flex-wrap justify-between items-start">
-        {articles.map((article, i) => (
+        {articles.map((article) => (
           <li key={`${article.id}`} className="w-full md:w-[48%]">
             <ArticleCard data={article} />
           </li>

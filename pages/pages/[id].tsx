@@ -8,7 +8,7 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import { FC } from "react";
+import type { NextPage } from "next";
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   const articles = await listArticles();
@@ -21,7 +21,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 };
 
 export const getStaticProps = async (
-  context: GetStaticPropsContext<{ id: string }>
+  context: GetStaticPropsContext<{ id: string }>,
 ): Promise<
   GetStaticPropsResult<{
     id: string;
@@ -33,7 +33,7 @@ export const getStaticProps = async (
   const { id } = context.params;
   const articles = await listArticles(
     (+id - 1) * ARTICLES_PER_PAGE - 1,
-    ARTICLES_PER_PAGE
+    ARTICLES_PER_PAGE,
   );
   const totalCount = await (await listArticles()).length;
   return {
@@ -45,7 +45,7 @@ export const getStaticProps = async (
   };
 };
 
-const PageId: FC<{
+const PageId: NextPage<{
   id: string;
   articles: Array<article>;
   totalCount: number;
@@ -53,7 +53,7 @@ const PageId: FC<{
   return (
     <Layout subTitle="">
       <ul className="flex flex-wrap justify-between items-start">
-        {articles.map((article, i) => (
+        {articles.map((article) => (
           <li key={`${article.id}`} className="w-full md:w-[48%]">
             <ArticleCard data={article} />
           </li>

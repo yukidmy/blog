@@ -1,9 +1,9 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC } from "react";
 
-export const CircleIconButton: FC<{
+export const CircleIconButton: NextPage<{
   iconColor: string;
   border: boolean;
   focus: boolean;

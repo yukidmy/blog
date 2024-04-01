@@ -5,12 +5,10 @@ import { tag } from "../../libs/cms-types";
 import { listTags } from "../../libs/microcms";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { GetStaticPropsContext, GetStaticPropsResult } from "next";
-import { FC } from "react";
+import { GetStaticPropsResult } from "next";
+import type { NextPage } from "next";
 
-export const getStaticProps = async (
-  _: GetStaticPropsContext<{}>
-): Promise<
+export const getStaticProps = async (): Promise<
   GetStaticPropsResult<{
     tags: Array<tag>;
   }>
@@ -23,7 +21,7 @@ export const getStaticProps = async (
   };
 };
 
-const Tags: FC<{ tags: Array<tag> }> = ({ tags }) => {
+const Tags: NextPage<{ tags: Array<tag> }> = ({ tags }) => {
   return (
     <Layout subTitle="Tags">
       <Header

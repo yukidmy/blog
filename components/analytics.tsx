@@ -1,12 +1,13 @@
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
 
-export const Tracking: FC<{}> = () => {
+export const Tracking: NextPage = () => {
   const router = useRouter();
-  const { events } = router || {};
+  const { events } = router || Object;
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (!window) return;
@@ -28,7 +29,7 @@ export const Tracking: FC<{}> = () => {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
-      <Script strategy="afterInteractive">
+      <Script id="analytics" strategy="afterInteractive">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

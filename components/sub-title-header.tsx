@@ -1,7 +1,7 @@
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC } from "react";
 
-export const Header: FC<{
+export const Header: NextPage<{
   subTitle: string;
   path: Array<{ href: string; subTitle: string }>;
 }> = ({ subTitle, path }) => {

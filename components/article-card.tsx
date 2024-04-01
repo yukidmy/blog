@@ -3,10 +3,10 @@ import { ArticleDate } from "./article-date";
 import { MicroCmsImage } from "./microcms-image";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { NextPage } from "next";
 import Link from "next/link";
-import { FC } from "react";
 
-export const ArticleCard: FC<{ data: article }> = ({ data }) => {
+export const ArticleCard: NextPage<{ data: article }> = ({ data }) => {
   return (
     <div className="w-full mb-14">
       <div className="relative w-full mb-5 aspect-video">
