@@ -4,6 +4,7 @@ import hljs from "highlight.js";
 import { JSDOM } from "jsdom";
 import { createClient } from "microcms-js-sdk";
 
+
 const QUERY_ALL_LIMIT = 100000;
 const SUMMARY_LIMIT = 1000;
 
@@ -23,6 +24,8 @@ const preprocessContent = (contentHtml: string): string => {
   $("pre code").each((_, elem) => {
     const result = hljs.highlightAuto($(elem).text());
     $(elem).html(result.value);
+  });
+  $("code").each((_, elem) => {
     $(elem).addClass("hljs");
   });
   return $.html();
