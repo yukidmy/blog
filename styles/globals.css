@@ -35,6 +35,9 @@
     @apply text-slate-900;
   }
 
+  article {
+    word-break: auto-phrase;
+  }
   article h1 {
     @apply mx-0;
     @apply border-b-2 border-slate-900;

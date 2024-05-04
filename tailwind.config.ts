@@ -12,5 +12,4 @@ export default {
       ...defaultTheme.screens,
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
 } satisfies Config;
