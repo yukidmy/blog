@@ -91,14 +91,14 @@ const ArticleId: NextPage<{
           </Link>
         </div>
         <div className="my-5">
-          <div className="flex flex-wrap justify-center items-center">
-            <span className="my-1 mr-5">
+          <div className="flex flex-wrap gap-x-5 justify-center items-center">
+            <span className="my-1">
               <ArticleDate data={article} />
             </span>
-            <ul className="my-1 flex flex-wrap">
+            <ul className="my-1 flex flex-wrap gap-x-3 justify-center">
               {article.tags.map((tag) => (
                 <li key={`tags/${tag.id}`}>
-                  <Link className="mr-3 text-teal-500" href={`/tags/${tag.id}`}>
+                  <Link className="text-teal-500" href={`/tags/${tag.id}`}>
                     <FontAwesomeIcon icon={faHashtag} className="mr-1" />
                     {tag.name}
                   </Link>
@@ -131,7 +131,7 @@ const ArticleId: NextPage<{
             href={encodedUrl(
               "https://twitter.com/intent/tweet/",
               `${article.title} | #ゆのろぐ`,
-              `https://blog.yukidmy.com/${article.id}`,
+              `https://blog.yukidmy.com/${article.id}`
             )}
             icon={faTwitter}
             label="Share on Twitter"

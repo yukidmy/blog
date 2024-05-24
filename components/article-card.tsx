@@ -19,14 +19,14 @@ export const ArticleCard: NextPage<{ data: article }> = ({ data }) => {
         </Link>
       </div>
       <div className="space-y-3">
-        <div className="flex flex-wrap">
-          <span className="mr-5">
+        <div className="flex flex-wrap gap-x-5">
+          <span>
             <ArticleDate data={data} />
           </span>
-          <ul className="flex flex-wrap">
+          <ul className="flex flex-wrap gap-x-3">
             {data.tags.map((tag) => (
               <li key={`${tag.id}`}>
-                <Link className="mr-3 text-teal-500" href={`/tags/${tag.id}`}>
+                <Link className="text-teal-500" href={`/tags/${tag.id}`}>
                   <FontAwesomeIcon icon={faHashtag} className="mr-1" />
                   {tag.name}
                 </Link>
