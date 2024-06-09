@@ -15,7 +15,7 @@ export const MyHead: NextPage<{
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/favicon.svg" />
       <meta name="description" content={desc} />
 
       <meta property="og:type" content="article" />

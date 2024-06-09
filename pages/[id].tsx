@@ -6,7 +6,7 @@ import { SquareElementButton } from "../components/square-button";
 import { article } from "../libs/cms-types";
 import { listArticles } from "../libs/microcms";
 import { encodedUrl } from "../libs/url-util";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   faAngleLeft,
   faAngleRight,
@@ -30,7 +30,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 };
 
 export const getStaticProps = async (
-  context: GetStaticPropsContext<{ id: string }>,
+  context: GetStaticPropsContext<{ id: string }>
 ): Promise<
   GetStaticPropsResult<{
     article: article;
@@ -62,7 +62,7 @@ const ArticleId: NextPage<{
     const twitterScript = document.createElement("script");
     twitterScript.setAttribute(
       "src",
-      "https://platform.twitter.com/widgets.js",
+      "https://platform.twitter.com/widgets.js"
     );
     twitterScript.setAttribute("async", "true");
     const tweetElement = document.getElementsByClassName("twitter-tweet")[0];
@@ -123,18 +123,18 @@ const ArticleId: NextPage<{
         />
       </div>
       <ul className="flex justify-center items-center">
-        <li key="twitter">
+        <li key="x-twitter">
           <CircleIconButton
             iconColor="slate-900"
             border={false}
             focus={false}
             href={encodedUrl(
-              "https://twitter.com/intent/tweet/",
+              "https://x.com/intent/tweet/",
               `${article.title} | #ゆのろぐ`,
               `https://blog.yukidmy.com/${article.id}`
             )}
-            icon={faTwitter}
-            label="Share on Twitter"
+            icon={faXTwitter}
+            label="Share on X"
           />
         </li>
       </ul>

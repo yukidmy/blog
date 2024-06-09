@@ -1,6 +1,6 @@
 import { SquareIconButton } from "./square-button";
 import {
-  faTwitter,
+  faXTwitter,
   faInstagram,
   faGithub,
   faLinkedinIn,
@@ -14,14 +14,14 @@ export const Footer: NextPage = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 w-full h-32">
       <ul className="mt-9 mb-5 w-full mx-auto flex items-center justify-center">
-        <li key="twitter">
+        <li key="x">
           <SquareIconButton
             iconColor="slate-50"
             border={true}
             focus={false}
-            href="https://twitter.com/yukidmy"
-            icon={faTwitter}
-            label="Go to Yuki's Twitter"
+            href="https://x.com/yukidmy"
+            icon={faXTwitter}
+            label="Go to Yuki's X"
           />
         </li>
         <li key="instagram">
@@ -34,16 +34,6 @@ export const Footer: NextPage = () => {
             label="Go to Yuki's Instagram"
           />
         </li>
-        <li key="github">
-          <SquareIconButton
-            iconColor="slate-50"
-            border={true}
-            focus={false}
-            href="https://github.com/yukidmy"
-            icon={faGithub}
-            label="Go to Yuki's GitHub"
-          />
-        </li>
         <li key="linkedin">
           <SquareIconButton
             iconColor="slate-50"
@@ -52,6 +42,16 @@ export const Footer: NextPage = () => {
             href="https://linkedin.com/in/yukidmy"
             icon={faLinkedinIn}
             label="Go to Yuki's LinkedIn"
+          />
+        </li>
+        <li key="github">
+          <SquareIconButton
+            iconColor="slate-50"
+            border={true}
+            focus={false}
+            href="https://github.com/yukidmy"
+            icon={faGithub}
+            label="Go to Yuki's GitHub"
           />
         </li>
         <li key="amazon">

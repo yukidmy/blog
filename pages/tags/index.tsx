@@ -44,7 +44,6 @@ const Tags: NextPage<{ tags: Array<tag> }> = ({ tags }) => {
               href={`/tags/${tag.id}`}
               label={`# ${tag.name} (${tag.count})`}
             >
-              {" "}
               <span>
                 <FontAwesomeIcon icon={faHashtag} className="mr-1" />
                 {`${tag.name} (${tag.count})`}
