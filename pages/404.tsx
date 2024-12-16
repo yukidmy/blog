@@ -21,7 +21,6 @@ const Custom404: NextPage = () => {
           height="100%"
           src="https://www.youtube.com/embed/r7gJrvvCyWo"
           title="YouTube video player - Sexy Zone「NOT FOUND」（YoutubeVer）"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
