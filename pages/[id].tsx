@@ -1,8 +1,10 @@
 import { ArticleDate } from "../components/article-date";
-import { CircleIconButton } from "../components/circle-button";
 import { Layout } from "../components/layout";
 import { MicroCmsImage } from "../components/microcms-image";
-import { SquareElementButton } from "../components/square-button";
+import {
+  SquareIconButton,
+  SquareElementButton,
+} from "../components/square-button";
 import { article } from "../libs/cms-types";
 import { listArticles } from "../libs/microcms";
 import { encodedUrl } from "../libs/url-util";
@@ -124,9 +126,9 @@ const ArticleId: NextPage<{
       </div>
       <ul className="flex justify-center items-center">
         <li key="x-twitter">
-          <CircleIconButton
-            iconColor="slate-900"
-            border={false}
+          <SquareIconButton
+            textColor="text-slate-900"
+            borderColor="border-transparent"
             focus={false}
             href={encodedUrl(
               "https://x.com/intent/tweet/",
@@ -141,8 +143,8 @@ const ArticleId: NextPage<{
       <nav className="mt-5 mb-10 flex justify-between items-center">
         {nextId ? (
           <SquareElementButton
-            iconColor="slate-900"
-            border={false}
+            textColor="text-slate-900"
+            borderColor="border-transparent"
             focus={false}
             href={`/${nextId}`}
             label="Next"
@@ -155,8 +157,8 @@ const ArticleId: NextPage<{
         <div className="flex-grow"></div>
         {prevId ? (
           <SquareElementButton
-            iconColor="slate-900"
-            border={false}
+            textColor="text-slate-900"
+            borderColor="border-transparent"
             focus={false}
             href={`/${prevId}`}
             label="Prev"

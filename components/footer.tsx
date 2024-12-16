@@ -16,8 +16,8 @@ export const Footer: NextPage = () => {
       <ul className="mt-9 mb-5 w-full mx-auto flex items-center justify-center">
         <li key="x">
           <SquareIconButton
-            iconColor="slate-50"
-            border={true}
+            textColor="text-slate-50"
+            borderColor="border-slate-50"
             focus={false}
             href="https://x.com/yukidmy"
             icon={faXTwitter}
@@ -26,8 +26,8 @@ export const Footer: NextPage = () => {
         </li>
         <li key="instagram">
           <SquareIconButton
-            iconColor="slate-50"
-            border={true}
+            textColor="text-slate-50"
+            borderColor="border-slate-50"
             focus={false}
             href="https://instagram.com/yukidmy"
             icon={faInstagram}
@@ -36,8 +36,8 @@ export const Footer: NextPage = () => {
         </li>
         <li key="linkedin">
           <SquareIconButton
-            iconColor="slate-50"
-            border={true}
+            textColor="text-slate-50"
+            borderColor="border-slate-50"
             focus={false}
             href="https://linkedin.com/in/yukidmy"
             icon={faLinkedinIn}
@@ -46,8 +46,8 @@ export const Footer: NextPage = () => {
         </li>
         <li key="github">
           <SquareIconButton
-            iconColor="slate-50"
-            border={true}
+            textColor="text-slate-50"
+            borderColor="border-slate-50"
             focus={false}
             href="https://github.com/yukidmy"
             icon={faGithub}
@@ -56,8 +56,8 @@ export const Footer: NextPage = () => {
         </li>
         <li key="amazon">
           <SquareIconButton
-            iconColor="slate-50"
-            border={true}
+            textColor="text-slate-50"
+            borderColor="border-slate-50"
             focus={false}
             href="https://www.amazon.jp/hz/wishlist/ls/2LA6Q65P7GUC3"
             icon={faGift}

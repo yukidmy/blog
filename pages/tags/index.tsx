@@ -38,8 +38,8 @@ const Tags: NextPage<{ tags: Array<tag> }> = ({ tags }) => {
         {tags.map((tag) => (
           <li key={`${tag.id}`} className="my-1">
             <SquareElementButton
-              iconColor="teal-500"
-              border={true}
+              textColor="text-teal-500"
+              borderColor="border-transparent"
               focus={false}
               href={`/tags/${tag.id}`}
               label={`# ${tag.name} (${tag.count})`}

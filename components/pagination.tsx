@@ -57,8 +57,8 @@ export const Pagination: NextPage<{
         {focused > 1 ? (
           <li key="prev">
             <SquareIconButton
-              iconColor="slate-900"
-              border={false}
+              textColor="text-slate-900"
+              borderColor="border-transparent"
               focus={false}
               href={`${focused === 2 ? base : prefix + +(focused - 1)}`}
               icon={faAngleLeft}
@@ -74,8 +74,8 @@ export const Pagination: NextPage<{
           ) : focused === number ? (
             <li key={number.toString()}>
               <SquareTextButton
-                iconColor="slate-900"
-                border={false}
+                textColor="text-slate-900"
+                borderColor="border-transparent"
                 focus={true}
                 href={`${number === 1 ? base : prefix + number}`}
                 text={number.toString()}
@@ -84,8 +84,8 @@ export const Pagination: NextPage<{
           ) : (
             <li key={number.toString()}>
               <SquareTextButton
-                iconColor="slate-900"
-                border={false}
+                textColor="text-slate-900"
+                borderColor="border-transparent"
                 focus={false}
                 href={`${number === 1 ? base : prefix + number}`}
                 text={number.toString()}
@@ -96,8 +96,8 @@ export const Pagination: NextPage<{
         {focused < max_page ? (
           <li key="next">
             <SquareIconButton
-              iconColor="slate-900"
-              border={false}
+              textColor="text-slate-900"
+              borderColor="border-transparent"
               focus={false}
               href={`${prefix + +(focused + 1)}`}
               icon={faAngleRight}
